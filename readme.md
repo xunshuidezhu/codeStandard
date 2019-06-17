@@ -50,3 +50,6 @@ public:
 ### catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes， 这个命令会输出一个compile_commands.json文件在ROS工作空间的build文件夹下面，然后在c_cpp_properties.json文件添加下面一段话：
 ### "compileCommands": "${workspaceFolder}/build/compile_commands.json"即可实现代码跳转
 #### (后续如果需要远程登陆服务器开发（比如ssh连接开发机），需要掌握vim或者emacs进行开发 )
+## 开发流程：
+### 将代码git clone到本地，进行编译即可获得最新的代码开发环境，每次提交只提交源码，不提交膨胀生成的其他文件比如编译完的.o文件，每个迭代周期需要所有人有一样的开发环境与最新的代码，不可用老版本代码进行开发
+### 内部开发说明：末尾偶数代表稳定版本，奇数代表Beta版本，比如v1.2.2与v1.2.3，前者为可编译执行版本后者为在开发版本，每次提交代码只提交稳定版本
