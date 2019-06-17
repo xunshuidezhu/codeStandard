@@ -49,3 +49,4 @@ public:
 ### ubuntu16 + ros kinetic作为基本开发环境，推荐使用vscode或者robware作为开发工具，如果使用vscode作为开发工具，为了实现代码跳转可以使用命令行编译:
 ### catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes， 这个命令会输出一个compile_commands.json文件在ROS工作空间的build文件夹下面，然后在c_cpp_properties.json文件添加下面一段话：
 ### "compileCommands": "${workspaceFolder}/build/compile_commands.json"即可实现代码跳转
+#### (后续如果需要远程登陆服务器开发（比如ssh连接开发机），需要掌握vim或者emacs进行开发 )
