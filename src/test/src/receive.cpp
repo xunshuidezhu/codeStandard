@@ -2,7 +2,7 @@
 #include "ros/ros.h"
 #include <iostream>
 #include <string>
-#include "test/pthreadpool.h"
+#include "base/thread_pool.h"
 
 using namespace std;
 

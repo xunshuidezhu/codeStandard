@@ -9,7 +9,7 @@
  * 
  * *********************************************************************************/
 
-#include "pthreadpool.h"
+#include "thread_pool.h"
 #include <stdio.h>
 
 pthread_cond_t PthreadPool::queue_cond;
