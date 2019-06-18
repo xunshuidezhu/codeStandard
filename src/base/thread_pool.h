@@ -11,7 +11,7 @@
 
 using namespace std;
 
-//Å½Ã¦Â·Ã…Å¸ÃŸÃŒÃ¥ÃˆÃÃÃ±
+//´æ·Å¾ßÌåÈÎÎñ
 typedef struct work {
     void* (*process)(void* arg);
     void* arg;
@@ -20,22 +20,18 @@ typedef struct work {
 class PthreadPool {
 public:
     void Pthreadinit();
-    void Addwork(void* (*process)(void* arg), void* arg); //ÃÃ²ÃÃŸÂ³ÃŒÃ–ÃÃŒÃ­Å’Ã“ÃˆÃÃÃ±
+    void Addwork(void* (*process)(void* arg), void* arg); //ÏòÏß³ÌÖĞÌí¼ÓÈÎÎñ
     int DestroyPthread();
-    void foo();
-    static void* func(void* arg); //ÃÃŸÂ³ÃŒÃ–ÃÂµÃ·Ã“ÃƒÂµÃ„Â»Ã˜ÂµÃ·ÂºÂ¯ÃŠÃ½
-    static void* myprocess(void* arg); //Å¸ÃŸÃŒÃ¥Â¹â‚¬Ã—Ã·ÂµÃ„ÂºÂ¯ÃŠÃ½
+    static void* func(void* arg); //Ïß³ÌÖĞµ÷ÓÃµÄ»Øµ÷º¯Êı
+    static void* myprocess(void* arg); //¾ßÌå¹¤×÷µÄº¯Êı
 
 private:
     static pthread_mutex_t queue_lock;
     static pthread_cond_t queue_cond;
-    static vector<ThreadWork*> m_vec; //ÃˆÃÃÃ±ÃŠÃ½Ã—Ã©
-    static int cur_num; //ÂµÂ±Ã‡Â°ÃˆÃÃÃ±ÃŠÃ½Â£Â¬Â²Ã™Ã—Ã·Ã•Ã¢Å¾Ã¶Â±Ã¤ÃÂ¿Ã’Â²Â¿Ã‰Ã’Ã”ÃˆÂ¡Å½ÃºÂ¶Ã”vectorÂµÃ„Å½Ã³ÃÂ¡Ã…ÃÂ¶ÃÂ¡Â£
-    static pthread_t* threadid; //ÃÃŸÂ³ÃŒÅ¸Ã¤Â±Ãº
-    static int isshutdown; //ÃÃŸÂ³ÃŒÃŠÃ‡Â·Ã±ÃÃºÂ»Ã™ÃƒÃ¨ÃŠÃ¶Â·Ã»Â£Â¬0 Ã•Ã½Â³Â£Â£Â¬1 ÃÃºÂ»Ã™
+    static vector<ThreadWork*> m_vec; //ÈÎÎñÊı×é
+    static int cur_num; //µ±Ç°ÈÎÎñÊı£¬²Ù×÷Õâ¸ö±äÁ¿Ò²¿ÉÒÔÈ¡´ú¶ÔvectorµÄ´óĞ¡ÅĞ¶Ï¡£
+    static pthread_t* threadid; //Ïß³Ì¾ä±ú
+    static int isshutdown; //Ïß³ÌÊÇ·ñÏú»ÙÃèÊö·û£¬0 Õı³££¬1 Ïú»Ù
 };
-void PthreadPool::foo()
-{
-    cout << " pthread Pool is start" << endl;
-}
+
 #endif
