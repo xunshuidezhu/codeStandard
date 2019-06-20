@@ -31,7 +31,7 @@ void PthreadPool::Pthreadinit()
     pthread_mutex_init(&queue_lock, NULL);
     pthread_cond_init(&queue_cond, NULL);
     printf("beging init\n");
-    m_vec.empty();
+    PthreadPool::m_vec.empty();
     threadid = new pthread_t[MAX_NUM];
     for (int i = 0; i < MAX_NUM; i++) //启动线程
     {
@@ -72,6 +72,7 @@ void* PthreadPool::func(void* arg)
         mwork = NULL;
     }
 }
+
 void PthreadPool::Addwork(void* (*process)(void* arg), void* arg)
 {
     ThreadWork* mwork = new ThreadWork;
@@ -84,6 +85,7 @@ void PthreadPool::Addwork(void* (*process)(void* arg), void* arg)
     pthread_mutex_unlock(&queue_lock);
     pthread_cond_signal(&queue_cond); //添加任务后唤醒线程执行任务。
 }
+
 int PthreadPool::DestroyPthread()
 {
     if (isshutdown == 1)

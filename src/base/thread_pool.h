@@ -1,3 +1,14 @@
+/**********************************************************************************
+ * @author XuHuanyu
+ * @data 2019/6/18
+ * @brief the threadpool based on the posix
+ * it can be used in the unix/linux
+ * the basic api : pthread_create, pthread_mutex_init.......
+ * 
+ * 
+ * 
+ * *********************************************************************************/
+
 #ifndef _PTHREADPOOL_H_
 #define _PTHREADPOOL_H_
 
@@ -6,6 +17,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <vector>
+#include <pthread.h>
+#include "base/uncopyable.h"
 
 #define MAX_NUM 3
 
@@ -17,7 +30,7 @@ typedef struct work {
     void* arg;
 } ThreadWork;
 
-class PthreadPool {
+class PthreadPool : public uncopyable {
 public:
     void Pthreadinit();
     void Addwork(void* (*process)(void* arg), void* arg); //向线程中添加任务
