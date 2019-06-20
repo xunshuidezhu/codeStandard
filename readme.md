@@ -3,7 +3,9 @@
 ## 说明：
 ### 新增加base模块，包括封装好的基础类库，头文件位于devel/include/base下
 ### 具体基础类库包括线程池，进程池，封装好的基于epoll的socket模块（解决io阻塞及io复用）
-### 使用方法：比如：#include"base/pthreadpool.h"即可使用线程池，具体函数库参考base模块的readme
+### 使用方法：比如：#include"base/pthreadpool.h"即可使用线程池，具体函数库参考base模块 readme
+### 新增加uncopyable接口，可用于不支持拷贝复制操作的类，继承该接口即可
+### 新增加测试模块，用于代码测试用例，位于test文件夹下
 ## 开发标准及规范:
 ### 1.命名采用下划线命名法，节点命名采用node开头比如，node_lidarmsg_send，topic命名采用topic开头，比如topic_lidarmsg_send
 ### 2.相对独立的程序块之间、变量说明之后必须加空行。
