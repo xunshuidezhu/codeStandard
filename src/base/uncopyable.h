@@ -14,7 +14,7 @@ protected:
     ~uncopyable() = default;
 private:
     uncopyable(const uncopyable&) = delete;
-    uncopyable& operator()(const uncopyable&) = delete;
+    uncopyable& operator=(const uncopyable&) = delete;
 };
 
 #endif
