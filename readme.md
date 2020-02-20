@@ -1,7 +1,7 @@
 ## UMShip
 ### UMSHIP is a project based on the ROS
 ## 说明：
-### 新增加base模块，包括封装好的基础类库，头文件位于devel/include/base下
+新增加base模块，包括封装好的基础类库，头文件位于devel/include/base下
 ### 具体基础类库包括线程池，进程池，封装好的基于epoll的socket模块（解决io阻塞及io复用）
 ### 使用方法：比如：#include"base/pthreadpool.h"即可使用线程池，具体函数库参考base模块 readme
 ### 新增加uncopyable接口，可用于不支持拷贝复制操作的类，继承该接口即可
